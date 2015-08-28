@@ -7,25 +7,20 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 describe("OO入门", function(){
-    var student = new Student('Tom',21,2);
-    var name = 'Tom';
-    var age = '21';
-    var classId = 2;
+    var Person = require("../../src/practice_3").Person;
+    var Student = require("../../src/practice_3").Student;
 
-    require("../../src/practice_3");
-    it("覆盖父类的方法-1", function(){
-        var exceptString = 'My name is Tom. I am 21 years old.'
-        expect(student.introduce()).toEqual(expectString);
-    });
+    var person = new Person('Tom',21);
+    var student = new Student('Tom',21,2);
 
     it("should have name and age and class attributes", function() {
-        expect(student.name).toEqual(name);
-        expect(student.age).toEqual(age);
-        expect(student.class).toEqual(classId);
-    })
+        expect(student.name).equal('Tom');
+        expect(student.age).equal(21);
+        expect(student.klass).equal(2);
+    });
 
     it("should have introduce,return a correct string", function() {
         var expectString = 'I am a Student. I am at Class 2.';
-        expect(studen.introduce(classId)).toEqual(expectString);
+        expect(student.introduce()).equal(expectString);
     })
 });

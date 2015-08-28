@@ -2,13 +2,19 @@ function Person (name, age) {
     this.name = name;
     this.age = age;
 }
-Person.prototype.introduce = function (name,age){
+Person.prototype.introduce = function (){
     return "My name is "+this.name+". I am "+this.age+" years old.";
 }
 
-function Student(name, age, classId) {
+function Student(name, age, klass) {
     Person.apply(this,arguments);
+    this.klass = klass;
 }
-Student.prototype.introduce = function(name,age,classId) {
-    return "I am a Student. I am at Class "+classId+".";
+Student.prototype.introduce = function() {
+    return "I am a Student. I am at Class "+this.klass+".";
+}
+
+module.exports = {
+    Person : Person,
+    Student : Student
 }
